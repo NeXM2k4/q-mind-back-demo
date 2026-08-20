@@ -8,8 +8,8 @@ class Config(BaseSettings):
 
     Manages environment variables and connection string generation for different database types.
     """
-    DB_TYPE: str = ""
-    DB_NAME: str = ""
+    DB_TYPE: str = "sqlite"
+    DB_NAME: str = "qmind.db"
     DB_USER: str = ""
     DB_PASSWORD: str = ""
     DB_HOST: str = ""
@@ -37,7 +37,7 @@ class Config(BaseSettings):
 db_config = Config()
 
 # Create SQLAlchemy engine instance
-engine = create_engine(url=db_config.DB_URL, echo=True, connect_args={"check_same_thread": False} if db_config.DB_TYPE == "sqlite" else {})
+engine = create_engine(url=db_config.DB_URL, echo=False, connect_args={"check_same_thread": False} if db_config.DB_TYPE == "sqlite" else {})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def get_db():
