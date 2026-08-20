@@ -1,0 +1,47 @@
+# ===============================================================================================
+# The following shows the last analyze fail log message.
+# ===============================================================================================
+
+----------------------------------------------------
+- Caught exception:
+----------------------------------------------------
+Illegal AnfNode for evaluating, node: @_tensor_getitem_by_tensor_484:param_data(type:Parameter), fg: _tensor_getitem_by_tensor_484 conf: Node: 000001C72EFC1DF0/@_tensor_getitem_by_tensor_484:param_data-uid(522791), Context: 000001C72DEC8160/<Dummy Context>, FuncGraph: 0000000000000000/null
+
+----------------------------------------------------
+- Framework Unexpected Exception Raised:
+----------------------------------------------------
+This exception is caused by framework's unexpected error. Please create an issue at https://gitee.com/mindspore/mindspore/issues to get help.
+
+----------------------------------------------------
+- C++ Call Stack: (For framework developers)
+----------------------------------------------------
+mindspore\ccsrc\frontend\jit\ps\static_analysis\static_analysis.cc:842 mindspore::abstract::AnalysisEngine::Eval
+
+----------------------------------------------------
+- The Traceback of Net Construct Code:
+----------------------------------------------------
+# 0 In file C:\Users\NeX\Desktop\PROYECTOS\QMIND-DEMO\q-mind-backend-main\modelarts_worker\logic\GeneticSolarOptimizer.py:63~75, 8~40
+        for i, engine in enumerate(self.engines):
+        ^
+# 1 In file C:\Users\NeX\Desktop\PROYECTOS\QMIND-DEMO\q-mind-backend-main\modelarts_worker\logic\GeneticSolarOptimizer.py:128, 38~62
+            v_oc_total_batch[winner], j_sc_limit_batch[winner],
+                                      ^~~~~~~~~~~~~~~~~~~~~~~~
+
+# ===============================================================================================
+# The following shows the IR when the function graphs evaluation fails to help locate the problem.
+# You can search the last ------------------------> to the node which is evaluated failure.
+# Refer to https://www.mindspore.cn/search?inputValue=analyze_fail.ir to get more instructions.
+# ===============================================================================================
+
+# IR entry: @modelarts_worker_logic_GeneticSolarOptimizer_GeneticSolarOptimizer_construct_485
+# Total subgraphs: 0
+
+# Attrs:
+compile_phase: train.1787250784133157120.1954699485376.9
+
+# Total params: 3
+# Params:
+%para1_temperature: <null>
+%para2_wavelength: <null>
+%para3_population: <Ref[Tensor[Float32]], (60, 2), ref_key=population, is_parameter>  :  has_default
+
