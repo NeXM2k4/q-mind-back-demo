@@ -1,0 +1,12 @@
+.venv
+venv
+__pycache__
+*.pyc
+.git
+.pytest_cache
+tests
+*.db
+.env
+.env.*
+cloudflared-linux-amd64.deb
+modelarts_worker/logs
